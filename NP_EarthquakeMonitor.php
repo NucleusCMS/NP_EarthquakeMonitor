@@ -22,7 +22,6 @@
 
 class NP_EarthquakeMonitor extends NucleusPlugin
 {
-
     function getName()           { return 'Earthquake Monitor'; }
     function getAuthor()         { return 'Cris van Geel'; }
     function getURL()            { return 'http://www.yellownote.nl/'; }
@@ -121,7 +120,6 @@ class NP_EarthquakeMonitor extends NucleusPlugin
         $result= sql_query($query);
         $row=mysql_fetch_object($result);
         $cachedtime = $row->cachetime;
-        
         if (time() - $this->GetOption('cachetimer') > $cachedtime) { 
             /* Refresh the cache */
             $tmpXML = file_get_contents('http://earthquake.usgs.gov/earthquakes/catalogs/'.$this->GetOption('feed').'.xml');
